@@ -2,7 +2,6 @@ package io.github.uv_lab.criminalintent;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
