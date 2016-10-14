@@ -3,6 +3,7 @@ package io.github.uv_lab.criminalintent;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,10 +24,20 @@ import java.util.UUID;
 
 public class CrimeListFragment extends Fragment {
 
+    private static final String KEY_CLICK_CRIME_ID = "click_crime_id";
+
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
 
     private UUID clickCrimeId;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            clickCrimeId = (UUID) savedInstanceState.getSerializable(KEY_CLICK_CRIME_ID);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,6 +77,12 @@ public class CrimeListFragment extends Fragment {
             Log.d("update_ui", "postion:" + position);
             mAdapter.notifyItemChanged(position);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putSerializable(KEY_CLICK_CRIME_ID, clickCrimeId);
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder
