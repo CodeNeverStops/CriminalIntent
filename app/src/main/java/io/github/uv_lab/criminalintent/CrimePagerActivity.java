@@ -2,6 +2,7 @@ package io.github.uv_lab.criminalintent;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -55,6 +56,6 @@ public class CrimePagerActivity extends AppCompatActivity {
                 break;
             }
         }
-
     }
+
 }
