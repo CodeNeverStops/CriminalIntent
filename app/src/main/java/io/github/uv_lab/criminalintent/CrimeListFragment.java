@@ -50,6 +50,11 @@ public class CrimeListFragment extends Fragment {
 
         updateUI();
 
+        if (CrimeLab.get(getActivity()).getCrimes().size() == 0) {
+            view = inflater.inflate(R.layout.fragment_crime_list_empty, container, false);
+            view.setVisibility(View.VISIBLE);
+        }
+
         return view;
     }
 
