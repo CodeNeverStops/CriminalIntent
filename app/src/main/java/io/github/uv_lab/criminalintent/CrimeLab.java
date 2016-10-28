@@ -11,7 +11,6 @@ import java.util.UUID;
 
 import database.CrimeDbSchema.CrimeBaseHelper;
 import database.CrimeDbSchema.CrimeCursorWrapper;
-import database.CrimeDbSchema.CrimeDbSchema;
 import database.CrimeDbSchema.CrimeDbSchema.CrimeTable;
 
 /**
@@ -43,7 +42,11 @@ public class CrimeLab {
     }
 
     public boolean delCrime(Crime c) {
-        return mCrimes.remove(c);
+        int affectedRows = mDatabase.delete(CrimeTable.NAME,
+                CrimeTable.Cols.UUID + " = ?",
+                new String[] { c.getId().toString() }
+        );
+        return affectedRows > 0 ? true : false;
     }
 
     public List<Crime> getCrimes() {
