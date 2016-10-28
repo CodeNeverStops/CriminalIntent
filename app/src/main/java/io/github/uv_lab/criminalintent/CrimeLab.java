@@ -42,6 +42,10 @@ public class CrimeLab {
         mDatabase.insert(CrimeTable.NAME, null, values);
     }
 
+    public boolean delCrime(Crime c) {
+        return mCrimes.remove(c);
+    }
+
     public List<Crime> getCrimes() {
         List<Crime> crimes = new ArrayList<>();
 
