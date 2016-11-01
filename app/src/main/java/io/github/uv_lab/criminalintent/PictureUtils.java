@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.util.Log;
 
 /**
  * Created by youwei on 2016/11/1.
@@ -26,6 +27,10 @@ public class PictureUtils {
 
         float srcWidth = options.outWidth;
         float srcHeight = options.outHeight;
+        Log.d("bitmap", "src width:" + srcWidth);
+        Log.d("bitmap", "src height:" + srcHeight);
+        Log.d("bitmap", "dest width:" + destWidth);
+        Log.d("bitmap", "dest height:" + destHeight);
 
         int inSampleSize = 1;
         if (srcHeight > destHeight || srcWidth > destWidth) {
